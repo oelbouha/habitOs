@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Pastel Light Theme (Default) */
+  --color-bg-primary: #f4f1ee;
+  --color-bg-secondary: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-card-hover: #f9f7f5;
+  --color-bg-sidebar: #faf8f6;
+  --color-border: #e8e2db;
+  --color-border-light: #d9d1c7;
+  --color-accent: #7c6f9b;
+  --color-accent-light: #a597c4;
+  --color-accent-dark: #665a85;
+  --color-success: #7ab8a0;
+  --color-warning: #e8c170;
+  --color-danger: #d98a8a;
+  --color-info: #7bafd4;
+  --color-health: #7ab8a0;
+  --color-mind: #a597c4;
+  --color-work: #e8c170;
+  --color-custom: #d4849a;
+  --color-text-primary: #3a3541;
+  --color-text-secondary: #7a7580;
+  --color-text-muted: #a8a3ae;
+
+  /* Week colors for grid headers */
+  --color-week1: #f0b8a8;
+  --color-week1-light: #fef0ec;
+  --color-week2: #c4b5d9;
+  --color-week2-light: #f3eefb;
+  --color-week3: #a8d8c8;
+  --color-week3-light: #edf8f3;
+  --color-week4: #a8cde8;
+  --color-week4-light: #eaf3fb;
+  --color-week5: #e8d4a8;
+  --color-week5-light: #faf5eb;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-light);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+/* Dark Mode Override */
+.dark-mode {
+  --color-bg-primary: #1a1720;
+  --color-bg-secondary: #221f2a;
+  --color-bg-card: #2a2635;
+  --color-bg-card-hover: #332e40;
+  --color-bg-sidebar: #1e1b26;
+  --color-border: #3a3548;
+  --color-border-light: #4a4558;
+  --color-text-primary: #e8e4ee;
+  --color-text-secondary: #9a95a5;
+  --color-text-muted: #6a657a;
+}
+
+@utility glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+}
+
+@utility card-shadow {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+@utility card-glow {
+  box-shadow: 0 0 20px rgba(124, 111, 155, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+@utility animate-in {
+  animation: fadeSlideIn 0.4s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    stroke-dashoffset: var(--ring-offset);
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@utility skeleton-shimmer {
+  background: linear-gradient(90deg, var(--color-bg-card) 25%, var(--color-bg-card-hover) 50%, var(--color-bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: #1a1a1a !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}
