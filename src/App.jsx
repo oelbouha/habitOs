@@ -6,6 +6,7 @@ import DailyTracker from './pages/DailyTracker';
 import WeeklyOverview from './pages/WeeklyOverview';
 import MonthlyAnalytics from './pages/MonthlyAnalytics';
 import YearOverview from './pages/YearOverview';
+import Privacy from './pages/Privacy';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
             <Route path="weekly" element={<WeeklyOverview />} />
             <Route path="monthly" element={<MonthlyAnalytics />} />
             <Route path="yearly" element={<YearOverview />} />
+            <Route path="privacy" element={<Privacy />} />
           </Route>
         </Routes>
       </BrowserRouter>
