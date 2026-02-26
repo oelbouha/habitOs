@@ -13,13 +13,13 @@ export default function App() {
     <HabitProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<Dashboard />} />
             <Route path="tracker" element={<DailyTracker />} />
             <Route path="weekly" element={<WeeklyOverview />} />
             <Route path="monthly" element={<MonthlyAnalytics />} />
             <Route path="yearly" element={<YearOverview />} />
-            <Route path="privacy" element={<Privacy />} />
           </Route>
         </Routes>
       </BrowserRouter>
